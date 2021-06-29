@@ -182,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781.1594202898552" y="-35.491071428571423"/>
+            <point key="canvasLocation" x="1816" y="-52"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b7f-po-5tj">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="abE-g8-KAA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683" y="-546"/>
+            <point key="canvasLocation" x="16" y="-771"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="2nt-Vc-bDj">
@@ -440,7 +440,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KCY-hq-O9s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2546.376811594203" y="-533.03571428571422"/>
+            <point key="canvasLocation" x="906" y="-771"/>
         </scene>
         <!--Near Cinemas-->
         <scene sceneID="mV5-Bq-Vss">
@@ -470,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rej-sA-tgv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4533" y="496"/>
+            <point key="canvasLocation" x="16" y="737"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
