@@ -11,7 +11,7 @@ import Foundation
 class Util{
     private static let rootImageUrl = "https://image.tmdb.org/t/p"
     static func getFullImageUrl(imageUrl: String, width: Int = 200) -> String{
-        return "\(rootImageUrl)/w\(width)/\(imageUrl)"
+        return "\(rootImageUrl)/w\(width)\(imageUrl)"
     }
     
     static func getEndpointUrl(url: String, additionalParams: Dictionary<String, String>?) -> String{

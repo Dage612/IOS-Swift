@@ -13,6 +13,9 @@ class MovieDetailViewController: UIViewController {
     var movieId: Int?
     private var movieDetail: MovieDetail?
     private var viewModel = MovieViewModel()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private var myFavoriteViewModel: MyFavoritesViewModel?
+    var isFavorite = false
     
     @IBOutlet weak var backdropImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,6 +23,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var castCollectionView: UICollectionView!
     @IBOutlet weak var rateLabel: UILabel!
+    @IBOutlet weak var addFavButton: UIBarButtonItem!
     
     var castList: [Cast] = []
     
@@ -27,7 +31,7 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.castCollectionView.register(CastPersonViewCell.self,forCellWithReuseIdentifier: CastPersonViewCell.identifier)
+        self.myFavoriteViewModel = MyFavoritesViewModel(context: appDelegate.persistentContainer.viewContext)
         
         self.castCollectionView.dataSource = self
         self.castCollectionView.delegate = self
@@ -36,6 +40,12 @@ class MovieDetailViewController: UIViewController {
         if let id = self.movieId {
             self.viewModel.getMovieDetail(id: id,  completion: { (movie) in
                 DispatchQueue.main.async {
+                    self.isFavorite = self.myFavoriteViewModel!.isMovieFavorite(id: id)
+                    if self.isFavorite {
+                        self.addFavButton.image = UIImage(systemName: "heart.fill")
+                    }
+                    
+                    self.movieDetail = movie
                     self.title = movie.title
                     
                     if let backdropImage = movie.backdropImage{
@@ -80,6 +90,17 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func AddFavoriteTap(_ sender: Any) {
+        if(!self.isFavorite){
+            self.myFavoriteViewModel!.saveFavorite(id: self.movieId!, title: self.movieDetail!.title, imageUrl: self.movieDetail!.posterPath!)
+            self.addFavButton.image = UIImage(systemName: "heart.fill")
+        }
+        else{
+            self.myFavoriteViewModel!.removeFavorite(id: self.movieId!)
+            self.addFavButton.image = UIImage(systemName: "heart")
+        }
+        
+    }
     
 }
 
