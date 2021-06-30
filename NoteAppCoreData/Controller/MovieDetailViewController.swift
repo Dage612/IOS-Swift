@@ -94,10 +94,12 @@ class MovieDetailViewController: UIViewController {
         if(!self.isFavorite){
             self.myFavoriteViewModel!.saveFavorite(id: self.movieId!, title: self.movieDetail!.title, imageUrl: self.movieDetail!.posterPath!)
             self.addFavButton.image = UIImage(systemName: "heart.fill")
+            self.isFavorite = true
         }
         else{
             self.myFavoriteViewModel!.removeFavorite(id: self.movieId!)
             self.addFavButton.image = UIImage(systemName: "heart")
+            self.isFavorite = false
         }
         
     }
