@@ -98,9 +98,6 @@
 				2E37154825C0FB980037351E /* SceneDelegate.swift */,
 				2E37154A25C0FB980037351E /* NoteDetailVC.swift */,
 				2E37154C25C0FB980037351E /* Main.storyboard */,
-				2E37155E25C101E20037351E /* NoteCell.swift */,
-				2E37156125C102060037351E /* NoteTableView.swift */,
-				2E91899825C2BCDC00A3C567 /* Note.swift */,
 				2E37155225C0FB9B0037351E /* Assets.xcassets */,
 				2E37155425C0FB9B0037351E /* LaunchScreen.storyboard */,
 				2E37155725C0FB9B0037351E /* Info.plist */,
@@ -131,6 +128,7 @@
 		31660EC8268AA2080081691D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2E37155E25C101E20037351E /* NoteCell.swift */,
 				31660EC9268AA2080081691D /* MovieViewModel.swift */,
 			);
 			path = ViewModel;
@@ -139,6 +137,7 @@
 		31660ECB268AA20F0081691D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2E37156125C102060037351E /* NoteTableView.swift */,
 				31660ECE268AA20F0081691D /* MovieTableViewCell.swift */,
 				D360D05A268AD8A600A0D3DA /* CastPersonViewCell.swift */,
 			);
@@ -157,6 +156,7 @@
 		31660ED6268AA2280081691D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2E91899825C2BCDC00A3C567 /* Note.swift */,
 				31660ED7268AA2280081691D /* Model.swift */,
 				31660ED8268AA2280081691D /* MovieDetail.swift */,
 			);
