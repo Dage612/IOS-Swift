@@ -30,3 +30,12 @@ struct Movie: Decodable {
         case posterImage = "poster_path"
     }
 }
+
+struct SearchResult:Decodable {
+    let page: Int
+    let results: [Movie]
+    
+    private enum CodingKeys: String, CodingKey{
+        case page, results
+    }
+}

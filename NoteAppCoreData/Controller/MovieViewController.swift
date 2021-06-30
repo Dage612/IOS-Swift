@@ -9,6 +9,7 @@ import UIKit
 class MovieViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private var viewModel = MovieViewModel()
 
@@ -16,12 +17,14 @@ class MovieViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         loadPopularMoviesData()
+        self.searchBar.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     private func loadPopularMoviesData() {
         viewModel.fetchPopularMoviesData { [weak self] in
-            self?.tableView.dataSource = self
-            self?.tableView.delegate = self
+            
             self?.tableView.reloadData()
         }
     }
@@ -56,4 +59,27 @@ extension MovieViewController: UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: "DetailSegue", sender: self)
     }
 
+}
+
+extension MovieViewController : UISearchBarDelegate{
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.loadPopularMoviesData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       
+        if searchText == ""{
+            self.loadPopularMoviesData()
+        }
+        else{
+          
+                self.viewModel.search(term: searchText, completion: { movies in
+                    print(movies)
+                    self.tableView.reloadData()
+                })
+            
+        }
+    }
+    
+    
 }

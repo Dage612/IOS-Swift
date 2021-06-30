@@ -68,4 +68,20 @@ class MovieViewModel {
         })
     }
     
+    func search(term: String, completion: @escaping (_:[Movie]) -> ()) {
+        
+        apiService.search(term: term, completion: { (result) in
+            
+            switch result {
+            case .success(let listOf):
+                self.popularMovies = listOf.results
+                completion(listOf.results)
+            case .failure(let error):
+                // Something is wrong with the JSON file or the model
+                print("Error processing json data: \(error)")
+            }
+        })
+    
+    }
+    
 }

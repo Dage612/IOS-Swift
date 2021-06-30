@@ -155,4 +155,56 @@ class ApiService {
         }
         dataTask?.resume()
     }
+    
+    func search(term: String, completion: @escaping (Result<SearchResult, Error>) -> Void){
+        let encodedTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        let searchMoviesUrl = Util.getEndpointUrl(url: "search/movie", additionalParams: ["query": encodedTerm ?? ""])
+        
+        
+        
+        guard let url = URL(string: searchMoviesUrl) else {return}
+        
+        // Create URL Session - work on the background
+        dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            // Handle Error
+            if let error = error {
+                completion(.failure(error))
+                print("DataTask error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                // Handle Empty Response
+                print("Empty Response")
+                return
+            }
+            print("Response status code: \(response.statusCode)")
+            
+            guard let data = data else {
+                // Handle Empty Data
+                print("Empty Data")
+                return
+            }
+            
+            
+            do {
+                // Parse the data
+                let decoder = JSONDecoder()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-mm-dd"
+                decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                let jsonData = try decoder.decode(SearchResult.self, from: data)
+                
+                // Back to the main thread
+                DispatchQueue.main.async {
+                    completion(.success(jsonData))
+                }
+            } catch let error {
+                completion(.failure(error))
+            }
+            
+        }
+        dataTask?.resume()
+    }
 }
