@@ -28,6 +28,7 @@
 		31660ED5268AA2140081691D /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31660ED3268AA2140081691D /* Util.swift */; };
 		31660ED9268AA2280081691D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31660ED7268AA2280081691D /* Model.swift */; };
 		31660EDA268AA2280081691D /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31660ED8268AA2280081691D /* MovieDetail.swift */; };
+		D360D05B268AD8A600A0D3DA /* CastPersonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D360D05A268AD8A600A0D3DA /* CastPersonViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		31660ED3268AA2140081691D /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		31660ED7268AA2280081691D /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		31660ED8268AA2280081691D /* MovieDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		D360D05A268AD8A600A0D3DA /* CastPersonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastPersonViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				31660ECE268AA20F0081691D /* MovieTableViewCell.swift */,
+				D360D05A268AD8A600A0D3DA /* CastPersonViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				31660EC6268AA2010081691D /* MapViewController.swift in Sources */,
 				2E37154B25C0FB980037351E /* NoteDetailVC.swift in Sources */,
+				D360D05B268AD8A600A0D3DA /* CastPersonViewCell.swift in Sources */,
 				31660ED0268AA20F0081691D /* MovieTableViewCell.swift in Sources */,
 				31660EDA268AA2280081691D /* MovieDetail.swift in Sources */,
 				31660ED5268AA2140081691D /* Util.swift in Sources */,

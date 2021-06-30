@@ -54,4 +54,18 @@ class MovieViewModel {
         })
     }
     
+    func getMovieCredits(id: Int, completion: @escaping (_:MovieCredits) -> ()) {
+        
+        apiService.getMovieCredits(id: id, completion: { (result) in
+            
+            switch result {
+            case .success(let movieCredits):
+                completion(movieCredits)
+            case .failure(let error):
+                // Something is wrong with the JSON file or the model
+                print("Error processing json data: \(error)")
+            }
+        })
+    }
+    
 }

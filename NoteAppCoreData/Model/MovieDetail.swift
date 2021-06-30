@@ -15,6 +15,8 @@ struct MovieDetail : Decodable {
     let homepage: String?
     let title: String
     let overview: String
+    let posterPath: String?
+    let releaseDate: Date?
    
     let voteAverage: Double
     let voteCount: Int
@@ -26,6 +28,8 @@ struct MovieDetail : Decodable {
         case voteCount = "vote_count"
         case voteAverage = "vote_average"
         case productionCompanies = "production_companies"
+        case posterPath = "poster_path"
+        case releaseDate = "release_date"
     }
 }
 
@@ -44,5 +48,23 @@ struct ProducerCompany : Decodable{
     
     private enum CodingKeys: String, CodingKey {
         case id, name, logoPath = "logo_path"
+    }
+}
+
+struct MovieCredits: Decodable {
+    let movieId: Int
+    let cast: [Cast]
+    
+    private enum CodingKeys: String, CodingKey {
+        case movieId = "id", cast
+    }
+}
+
+struct Cast: Decodable{
+    let name: String
+    let profileImage: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case name, profileImage="profile_path"
     }
 }
